@@ -85,8 +85,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Configuration Options
 
-### Configuration Options
-
 The `config.yaml` file is central to how yaml2cmake functions, allowing users to define the specifics of their C++ project's build configuration with ease. Below, each configuration option available in `config.yaml` is detailed, explaining its purpose, expected values, and format.
 
 #### `project_name`

@@ -1,5 +1,9 @@
 # yaml2cmake
 
+[![license](https://img.shields.io/badge/license-MIT-green)](https://raw.githubusercontent.com/araujo88/yaml2cmake/main/LICENSE)
+[![build](https://github.com/araujo88/yaml2cmake/actions/workflows/go.yaml/badge.svg?branch=main)](https://github.com/araujo88/yaml2cmake/actions/workflows/go.yaml)
+[![release](https://img.shields.io/github/v/release/araujo88/yaml2cmake)](https://github.com/araujo88/yaml2cmake/releases)
+
 yaml2cmake simplifies C++ project setups by generating `CMakeLists.txt` files from easy-to-write YAML configurations. It streamlines the process of integrating external dependencies, managing project settings, and ensuring project portability and scalability with minimal effort.
 
 ## Features

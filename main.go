@@ -19,6 +19,12 @@ type Config struct {
 	Install          bool              `yaml:"install"`
 	ExternalProjects []ExternalProject `yaml:"external_projects"`
 	OutputType       string            `yaml:"output_type"`
+	Testing          *Testing          `yaml:"testing"`
+}
+
+type Testing struct {
+	EnableTesting bool   `yaml:"enable_testing"`
+	Dir           string `yaml:"dir"`
 }
 
 // ExternalProject represents an external project to be added to the CMakeLists
@@ -115,6 +121,17 @@ func generateCMakeLists(config Config) string {
 		sb.WriteString("\n# Link the external library targets to your project\n")
 		for _, project := range config.ExternalProjects {
 			sb.WriteString("target_link_libraries(" + config.ProjectName + " PRIVATE " + project.Name + ")\n")
+		}
+	}
+
+	if config.Testing != nil {
+		if config.Testing.EnableTesting {
+			sb.WriteString("\n# Enable testing with CMake")
+			sb.WriteString("\nenable_testing()\n")
+		}
+		if config.Testing.Dir != "" {
+			sb.WriteString("\n# Include the directory where the test code is located")
+			sb.WriteString("\nadd_subdirectory(" + config.Testing.Dir + ")\n")
 		}
 	}
 

@@ -1,6 +1,6 @@
 project_name: example_project
 version: 1.0
-cpp_standard: 11
+cpp_standard: 17
 output_type: executable # Can be 'library' or 'executable'
 # library_type: static # Can be 'static' or 'shared'
 include_dirs:
@@ -8,6 +8,9 @@ include_dirs:
 source_patterns:
   - src/*.cpp
 install: true # Optional
+testing: # Optional
+  enable_testing: true
+  dir: tests
 external_projects:
   - name: logtard
     git_repo: https://github.com/araujo88/logtard.git

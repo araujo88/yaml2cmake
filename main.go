@@ -10,6 +10,7 @@ import (
 
 // Config represents the structure of the YAML configuration file
 type Config struct {
+	CMakeMinimum     string            `yaml:"cmake_minimum"`
 	ProjectName      string            `yaml:"project_name"`
 	Version          string            `yaml:"version"`
 	CPPStandard      int               `yaml:"cpp_standard"`
@@ -62,7 +63,7 @@ func generateCMakeLists(config Config) string {
 	var sb strings.Builder
 
 	// Basic project setup
-	sb.WriteString("cmake_minimum_required(VERSION 3.10)\n")
+	sb.WriteString("cmake_minimum_required(VERSION " + config.CMakeMinimum + ")\n")
 	sb.WriteString("project(" + config.ProjectName + " VERSION " + config.Version + ")\n")
 	sb.WriteString("set(CMAKE_CXX_STANDARD " + fmt.Sprintf("%d", config.CPPStandard) + ")\n")
 	sb.WriteString("set(CMAKE_CXX_STANDARD_REQUIRED True)\n")

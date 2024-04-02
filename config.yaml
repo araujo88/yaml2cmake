@@ -1,3 +1,4 @@
+cmake_minimum: 3.10
 project_name: example_project
 version: 1.0
 cpp_standard: 17
